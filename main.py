@@ -46,14 +46,21 @@ def g4(x):
 	return ma.sqrt(ma.log1p(x))	
 
 print "Resultado biseccion: "+str(Biseccion(f1, 10**(-5),-2.0, 3.0))
-print "Resultado biseccion: "+str(Biseccion(f2, 10**(-5),0.5, 1.5))
-print "Resultado biseccion: "+str(Biseccion(f3, 10**(-5),0.0 , 4.0))
+print "Resultado biseccion: "+str(Biseccion(f2, 10**(-5), 0.5, 1.5))
+print "Resultado biseccion: "+str(Biseccion(f3, 10**(-5), 0.0 , 4.0))
 print "Resultado biseccion: "+str(Biseccion(f4, 10**(-5), 1.0, 2.0))
+print "================================================="
 print "Resultado newton: "+str(Newton(f1, f1_, 0.0, 10**(-5)))
 print "Resultado newton: "+str(Newton(f2, f2_, 2.0, 10**(-5)))
 print "Resultado newton: "+str(Newton(f3, f3_, 2.5, 10**(-5)))
 print "Resultado newton: "+str(Newton(f4, f4_, 1.0, 10**(-5)))
+print "================================================="
 print "Resultado punto fijo: "+str(PuntoFijo(g1, 0.0,10**(-5)))
 print "Resultado punto fijo: "+str(PuntoFijo(g2, 2.0,10**(-5)))
 print "Resultado punto fijo: "+str(PuntoFijo(g3, 2.5,10**(-5)))
 print "Resultado punto fijo: "+str(PuntoFijo(g4, 1.0, 10**(-5)))
+print "================================================="
+print "Resultado secante: "+str(Secante(f1, -2.0, 3.0, 10**(-8)))
+print "Resultado secante: "+str(Secante(f2, 0.5, 1.5, 10**(-8)))
+print "Resultado secante: "+str(Secante(f3, 0.0, 4.0, 10**(-8)))
+print "Resultado secante: "+str(Secante(f4, 1.0, 2.0, 10**(-8)))
