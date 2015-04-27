@@ -1,9 +1,29 @@
- def PuntoFijo(aprox ini, TOL, No,f, g):
- 	i = 1
- 	while i <= No:
- 		p = g(po) #(Donde g es la función de punto fijo)
- 		if|f(p)|<TOL:
- 			return p 
- 		i = i+1
- 		po = p
- 	return False
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+def PuntoFijo(gx,x0,TOL):
+	i = 1
+	ini = x0
+	xi = 0
+	exp = 1
+	if isinstance(gx,float):
+		xi = gx
+	elif len(gx.split(" ")) == 2:
+		xi = feval(gx,ini)**(1/5)
+		exp = 1/5
+	elif len(gx.split(" ")) > 2:
+		xi = feval(gx,ini)**(1/4)
+		exp = 1/4
+	while i <= 100:
+		if exp == 1:
+			print gx
+			return gx
+		else:
+			xi = feval(gx,ini)**exp
+		dif = ma.fabs(ini-xi)
+		if dif<TOL:
+			print xi
+			return xi 
+		i = i+1
+		ini = xi
+	return False

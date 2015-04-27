@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 clear;
 clc; 
  fprintf('\n metodo de Newton Rapson Modificado\n\n');

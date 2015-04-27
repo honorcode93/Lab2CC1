@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import math as m
 def secante(fun,a,b,tol):
 	print "Método de la secante\n\n"
@@ -20,8 +23,7 @@ def secante(fun,a,b,tol):
 	    i = i + 1
 	    fprintf('%2i \t %f \t %f \t %f \n', i, a, b, xs)
 	w = feval(fun,xs)
-	print "La mejor aproximación a la raiz tomando una tolerancia de " + tol + "es \n x = " + xs +"con \n f(x) ="+
-	w +"\n y se realizaron " + i + "iteraciones"
+	print "La mejor aproximación a la raiz tomando una tolerancia de " + tol + "es \n x = " + xs +"con \n f(x) ="+w+"\n y se realizaron " + i + "iteraciones"
 	
 
 def feval(fun,a):
