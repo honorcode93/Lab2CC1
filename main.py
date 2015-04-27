@@ -55,27 +55,10 @@ def Taylor2():
 	plt.xlabel("X")
 	plt.title("Expansion de Taylor C(X)")
 	plt.show()
-
-input1 = "x^{2} -6"
-g1 = ma.sqrt(6)
-input2 = "x^{5} -5x^{2} +4"
-g2 = "5x^{2} -4"
-input3 = "x^{4} -6x^{3} +12x^{2} -10x +3"
-g3 = "6x^{3} -12x^{2} +10x -3"
-input4 = "e^{x^{2}}x"
-g4 = "e^{-x^{2}}"
-
-print "Resultado biseccion: "+str(Biseccion(f1, 10**(-5),-2,3))
-print "Resultado biseccion: "+str(Biseccion(f2, 10**(-5),0.5,1.5))
-print "Resultado biseccion: "+str(Biseccion(f3, 10**(-5),0,4))
-print "Resultado biseccion: "+str(Biseccion(f4, 10**(-5), 1.0, 2.0))
-print "Resultado C Taylor: " +str(Taylor(f5,ma.pi,ma.pi/2))
-print Taylor2()
 #PuntoFijo(g1,0.0,10**(-3))
 #PuntoFijo(g2,2.0,10**(-3))
 #PuntoFijo(g3,2.5,10**(-3))
 #PuntoFijo(g4,1, 10**(-3))
-=======
 #Derivadas
 def f1_(x):
 	return 2*x
