@@ -54,7 +54,7 @@ def Taylor2():
 	plt.ylabel("C(x)")
 	plt.xlabel("X")
 	plt.title("Expansion de Taylor C(X)")
-	plt.show()
+	plt.show() 	
 #PuntoFijo(g1,0.0,10**(-3))
 #PuntoFijo(g2,2.0,10**(-3))
 #PuntoFijo(g3,2.5,10**(-3))
