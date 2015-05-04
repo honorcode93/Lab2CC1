@@ -7,6 +7,8 @@ from puntofijo import *
 from secante import *
 from helper import *
 import matplotlib.pyplot as plt
+import scipy as s
+import scipy.special as ss
 # from sympy import *
 
 #Funciones
@@ -54,11 +56,23 @@ def Taylor2():
 	plt.ylabel("C(x)")
 	plt.xlabel("X")
 	plt.title("Expansion de Taylor C(X)")
-	plt.show() 	
-#PuntoFijo(g1,0.0,10**(-3))
-#PuntoFijo(g2,2.0,10**(-3))
-#PuntoFijo(g3,2.5,10**(-3))
-#PuntoFijo(g4,1, 10**(-3))
+	plt.show()
+
+def UltimaParte(f1,f2,f3):
+
+	y = []
+	g = []
+	G = []
+	s = np.arange(0.0,1.0,0.1)
+	for i in range(0,len(s)):
+		y.append(f1(s[i]))
+		g.append(f2(s[i]))
+		G.append(f3(s[i]))
+	plt.plot(y,G,"r")
+	plt.plot(y,g,"y")		
+	plt.plot(y,y,"b")
+	plt.show()
+#=======
 #Derivadas
 def f1_(x):
 	return 2*x
@@ -85,6 +99,21 @@ def g3(x):
 def g4(x):
 	return ma.sqrt(ma.log1p(x))	
 
+def g5(x):
+	return (ma.e**(2*x)-1)
+
+def g52(x):
+	return (ma.e**(2*x)-1 -(1/2)*(x -ma.e**(2*x)))
+
+def g6(x):
+	return ((x**3+1)/2)
+
+def g62(x):
+	return ((x**3+1)/2 -(1/2)*(x-((x**3+1)/2)))
+
+def g7(x):
+	return x
+
 print "Resultado biseccion: "+str(Biseccion(f1, 10**(-5),-2.0, 3.0))
 print "Resultado biseccion: "+str(Biseccion(f2, 10**(-5), 0.5, 1.5))
 print "Resultado biseccion: "+str(Biseccion(f3, 10**(-5), 0.0 , 4.0))
@@ -100,10 +129,23 @@ print "Resultado punto fijo: "+str(PuntoFijo(g2, 2.0,10**(-5)))
 print "Resultado punto fijo: "+str(PuntoFijo(g3, 2.5,10**(-5)))
 print "Resultado punto fijo: "+str(PuntoFijo(g4, 1.0, 10**(-5)))
 print "================================================="
+print "Resultado punto fijo modificado: "+str(PuntoFijoModificado(g1, 0.0,10**(-5),1/2))
+print "Resultado punto fijo modificado: "+str(PuntoFijoModificado(g2, 2.0,10**(-5),1/2))
+print "Resultado punto fijo modificado: "+str(PuntoFijoModificado(g3, 2.5,10**(-5),1/2))
+print "Resultado punto fijo modificado: "+str(PuntoFijoModificado(g4, 1.0, 10**(-5),1/2))# con 4 caga el logaritmo
+print "Mejor Valor Posible Para M : 1/2"	
+print "================================================="
+print "|g*(x)|: "+str(ma.fabs(f1(PuntoFijoModificado(g1, 0.0,10**(-5),1/2)))) + " < 1 => Converge"
+print "|g*(x)|: "+str(ma.fabs(f2(PuntoFijoModificado(g2, 2.0,10**(-5),1/2)))) + " < 1 => Converge"
+print "|g*(x)|: "+str(ma.fabs(f3(PuntoFijoModificado(g3, 2.5,10**(-5),1/2)))) + " < 1 => Converge"
+print "|g*(x)|: "+str(ma.fabs(f4(PuntoFijoModificado(g4, 1.0, 10**(-5),1/2)))) + " > 1 => Diverge"
+print "================================================="
 print "Resultado secante: "+str(Secante(f1, -2.0, 3.0, 10**(-8)))
 print "Resultado secante: "+str(Secante(f2, 0.5, 1.5, 10**(-8)))
-print "Resultado secante: "+str(Secante(f3, 0.0, 4.0, 10**(-8)))
+print "Resultado secante: "+str(Secante(f3, 0.0, 4.0, 10**(-8)))	
 print "Resultado secante: "+str(Secante(f4, 1.0, 2.0, 10**(-8)))
 print "================================================="
 print "Resultado C Taylor: " +str(Taylor(f5,ma.pi,ma.pi/2))
-print Taylor2()
+Taylor2()
+UltimaParte(g7,g5,g52)
+# print ss.ellipk(((2*(1-16*x**2)**(1/2))/((1-16*x**2)**(1/2)-1-8*x**2))**(1/2))	
